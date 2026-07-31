@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --minify",
+    "build": "echo \"Build skipped - using committed dist/output.css\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
