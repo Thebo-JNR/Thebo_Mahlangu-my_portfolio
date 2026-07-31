@@ -1,1 +1,151 @@
 @import "tailwindcss";
+
+/* class-based dark mode, so the moon/sun toggle actually works */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-accent: oklch(
+    63% 0.19 260
+  ); /* indigo-blue accent — change to taste */
+  --color-accent-light: oklch(70% 0.16 260);
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Scroll reveal (fade + rise) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal.d1 {
+  transition-delay: 0.1s;
+}
+.reveal.d2 {
+  transition-delay: 0.2s;
+}
+.reveal.d3 {
+  transition-delay: 0.3s;
+}
+.reveal.d4 {
+  transition-delay: 0.4s;
+}
+
+/* ── Button shimmer sweep ── */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+.shimmer:hover::after {
+  animation: shimmer-sweep 1s ease;
+}
+@keyframes shimmer-sweep {
+  100% {
+    left: 125%;
+  }
+}
+
+/* ── Skill tag stagger-in on load ── */
+.stag {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: stag-in 0.5s ease forwards;
+}
+.stag:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.stag:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.stag:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.stag:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.stag:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.stag:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.stag:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.stag:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.stag:nth-child(9) {
+  animation-delay: 0.45s;
+}
+.stag:nth-child(10) {
+  animation-delay: 0.5s;
+}
+.stag:nth-child(11) {
+  animation-delay: 0.55s;
+}
+@keyframes stag-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Card hover lift ── */
+.card-h {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.card-h:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.15);
+}
+
+/* ── Nav link underline ── */
+.nl {
+  position: relative;
+}
+.nl::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+.nl:hover::after,
+.nl.on::after {
+  width: 100%;
+}
+
+/* ── Profile image frame ── */
+.pf {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-zinc-200) 100%
+  );
+}
