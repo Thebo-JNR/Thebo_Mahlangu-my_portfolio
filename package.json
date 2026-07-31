@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "echo \"Build skipped - using committed dist/output.css\"",
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "build": "echo \"Build skipped - using committed src/output.css\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
