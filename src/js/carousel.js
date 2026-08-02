@@ -1,3 +1,17 @@
+/**
+ * Coverflow-style horizontal carousel — mobile only. On screens md (768px)
+ * and wider, this does nothing: the container switches to a plain CSS
+ * grid via Tailwind classes and all cards are reset to their natural
+ * state (no blur/scale/opacity).
+ *
+ * Usage:
+ *   <div id="my-carousel" class="flex md:grid ...">
+ *     <div class="carousel-card shrink-0 snap-center md:w-auto">...</div>
+ *     ...
+ *   </div>
+ *   <script src="./js/carousel.js"></script>
+ *   <script>initCoverflow('my-carousel');</script>
+ */
 function initCoverflow(containerId, options = {}) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -6,9 +20,23 @@ function initCoverflow(containerId, options = {}) {
   const maxBlur = options.maxBlur ?? 6; // px
   const minScale = options.minScale ?? 0.88;
   const minOpacity = options.minOpacity ?? 0.45;
+  const breakpoint = options.breakpoint ?? "(min-width: 768px)"; // Tailwind's md:
+  const mq = window.matchMedia(breakpoint);
+
+  function resetCards() {
+    cards.forEach((card) => {
+      card.style.filter = "";
+      card.style.transform = "";
+      card.style.opacity = "";
+    });
+    container.style.paddingLeft = "";
+    container.style.paddingRight = "";
+    container.style.scrollPaddingLeft = "";
+    container.style.scrollPaddingRight = "";
+  }
 
   function centerPadding() {
-    if (!cards.length) return;
+    if (mq.matches || !cards.length) return;
     const cardWidth = cards[0].offsetWidth;
     const pad = Math.max((container.clientWidth - cardWidth) / 2, 0);
     container.style.paddingLeft = pad + "px";
@@ -18,6 +46,8 @@ function initCoverflow(containerId, options = {}) {
   }
 
   function updateCards() {
+    if (mq.matches) return; // desktop/tablet grid — leave cards alone
+
     const containerRect = container.getBoundingClientRect();
     const containerCenter = containerRect.left + containerRect.width / 2;
 
@@ -25,7 +55,6 @@ function initCoverflow(containerId, options = {}) {
       const rect = card.getBoundingClientRect();
       const cardCenter = rect.left + rect.width / 2;
       const distance = Math.abs(containerCenter - cardCenter);
-      // normalize: 0 = perfectly centered, 1 = one full card-width away
       const norm = Math.min(distance / (rect.width * 0.9), 1);
 
       const blur = norm * maxBlur;
@@ -40,6 +69,7 @@ function initCoverflow(containerId, options = {}) {
 
   let ticking = false;
   function onScroll() {
+    if (mq.matches) return;
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(() => {
@@ -48,18 +78,25 @@ function initCoverflow(containerId, options = {}) {
     });
   }
 
-  centerPadding();
-  updateCards();
+  function refresh() {
+    if (mq.matches) {
+      resetCards();
+    } else {
+      centerPadding();
+      updateCards();
+    }
+  }
 
+  refresh();
   container.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", () => {
-    centerPadding();
-    updateCards();
-  });
+  window.addEventListener("resize", refresh);
+  mq.addEventListener("change", refresh);
 
-  // scroll the first card into center on load
+  // center the first card on load, mobile only
   requestAnimationFrame(() => {
-    cards[0]?.scrollIntoView({ inline: "center", block: "nearest" });
-    updateCards();
+    if (!mq.matches) {
+      cards[0]?.scrollIntoView({ inline: "center", block: "nearest" });
+      updateCards();
+    }
   });
 }
