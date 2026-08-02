@@ -149,3 +149,28 @@
     var(--color-zinc-200) 100%
   );
 }
+
+/*progress bar*/
+/* ── Striped/active progress bar ── */
+.progress-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.18) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.18) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  animation: progress-stripe-move 1s linear infinite;
+}
+@keyframes progress-stripe-move {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1rem 0;
+  }
+}
