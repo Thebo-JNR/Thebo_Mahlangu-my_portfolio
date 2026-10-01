@@ -45,23 +45,29 @@ function app() {
 
     updateSection() {
       const atBottom =
-        window.innerHeight + window.scrollY >= document.body.scrollHeight - 60;
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 60;
+
       if (atBottom) {
         this.s = "contact";
         return;
       }
+
+      // Sections ordered from bottom to top
       const ids = [
         "contact",
-        "blog",
         "reviews",
-        "about",
         "work",
+        "blog",
         "services",
+        "about",
         "hero",
       ];
+
       for (const id of ids) {
         const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 130) {
+
+        if (el && el.getBoundingClientRect().top <= 130) {
           this.s = id;
           return;
         }
