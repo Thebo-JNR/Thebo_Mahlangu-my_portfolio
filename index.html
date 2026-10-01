@@ -30,7 +30,7 @@
   </script>
   <script src="/src/js/carousel.js"></script>
 <script>
-  initCoverflow('work-carousel');
+  
 </script>
   <body x-data="app()" x-init="init()" class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased" :class="{ dark: dark }">
 <!-- ═══ NAV ═══ -->
@@ -331,179 +331,227 @@
       </div>
     </section>
 
+<style>
+  @media (min-width: 768px) {
+    #work .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 40px;
+      overflow: visible;
+      padding-bottom: 0;
+    }
+
+    #work .projects-grid > article {
+      width: auto;
+      min-width: 0;
+    }
+  }
+</style>
+
+<style>
+  @media (min-width: 768px) {
+    #work .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 40px;
+      overflow: visible;
+      padding-bottom: 0;
+    }
+
+    #work .projects-grid > article {
+      width: auto;
+      min-width: 0;
+    }
+  }
+</style>
+
 <!-- ═══ WORK ═══ -->
 <section id="work" class="py-24">
   <div class="max-w-6xl mx-auto px-6">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
       <div>
-        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Portfolio</p>
-        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Selected work</h2>
+        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">
+          Portfolio
+        </p>
+        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">
+          Selected work
+        </h2>
       </div>
-      <p class="reveal d1 md:hidden text-sm font-medium text-zinc-500 dark:text-zinc-400 self-start flex items-center gap-2">
-        Swipe to explore
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l-4 4m0 0l4 4m-4-4h16"/></svg>
+
+      <p class="md:hidden text-sm font-medium text-zinc-500 dark:text-zinc-400">
+        Swipe to explore →
       </p>
-      <a href="projects.html" class="reveal d1 hidden md:inline-block text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-auto nl">All projects →</a>
+
+      <a href="projects.html"
+         class="reveal d1 hidden md:inline-block text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors nl">
+        All projects →
+      </a>
+    </div>
+
+    <!-- Shared cards: mobile swipe / desktop grid -->
+    <div class="projects-grid flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
+
+      <!-- Project 1 -->
+      <article class="card-h group shrink-0 snap-start w-[85%] sm:w-[380px] min-w-0 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col">
+        <div class="w-full h-48 shrink-0 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&q=80"
+            alt="Portfolio project preview"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          >
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">
+              HTML
+            </span>
+            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
+              TailwindCSS
+            </span>
+            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
+              JavaScript
+            </span>
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">
+            My Virtual CV - Portfolio
+          </h3>
+
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5 flex-1">
+            My online virtual CV showcasing my skills, projects, and experience.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+            <a href="https://github.com/Thebo-JNR/Thebo_Mahlangu-my_portfolio"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
+              <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/>
+              </svg>
+              View Code
+            </a>
+
+            <a href="https://thebo-mahlangu-my-portfolio.vercel.app/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
+              <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+              View Demo
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="card-h group shrink-0 snap-start w-[85%] sm:w-[380px] min-w-0 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col">
+        <div class="w-full h-48 shrink-0 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+            alt="Guess Me game project preview"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          >
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">
+              CSS
+            </span>
+            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
+              HTML
+            </span>
+            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">
+              JavaScript
+            </span>
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">
+            Guess Me - Interactive Game
+          </h3>
+
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5 flex-1">
+            A simple web-app game built with web technologies. The game lets you guess the correct number and displays your high score.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+            <a href="https://github.com/Thebo-JNR/guess-the-number-game"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
+              <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/>
+              </svg>
+              View Code
+            </a>
+
+            <!-- Replace with a link when your demo is available -->
+            <span class="inline-flex items-center gap-1.5 text-sm text-zinc-400 dark:text-zinc-500">
+              <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+              Demo coming soon
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="card-h group shrink-0 snap-start w-[85%] sm:w-[380px] min-w-0 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col">
+        <div class="w-full h-48 shrink-0 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80"
+            alt="Orea Creative Agency project preview"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          >
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">
+              Agency
+            </span>
+            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">
+              Animation
+            </span>
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">
+            Orea — Creative Agency
+          </h3>
+
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5 flex-1">
+            Bold editorial site for a Paris-based branding studio. Scroll-driven animations and custom cursor.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+            <!-- Replace with links when your project URLs are available -->
+            <span class="inline-flex items-center gap-1.5 text-sm text-zinc-400 dark:text-zinc-500">
+              <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/>
+              </svg>
+              Code coming soon
+            </span>
+
+            <span class="inline-flex items-center gap-1.5 text-sm text-zinc-400 dark:text-zinc-500">
+              <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+              Demo coming soon
+            </span>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
-
-  <!-- ── MOBILE: coverflow carousel (below md) ── -->
-  <div id="work-carousel" class="md:hidden scrollbar-hide flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4">
-
-    <article class="carousel-card card-h reveal d1 group shrink-0 snap-center w-[85%] sm:w-380px rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col">
-      <div class="pf w-full h-48">
-        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&q=80" alt="Novu SaaS Dashboard" loading="lazy">
-      </div>
-      <div class="p-6 flex flex-col flex-1  gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-        <div class="flex flex-wrap gap-2 mb-3">
-          <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">HTML</span>
-          <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">TailwindCSS</span>
-          <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">JavaScript</span>
-        </div>
-        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">My Virtual CV - Portfolio</h3>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5 flex-1">My online virtual CV showcasing my skills, projects, and experience.</p>
-        <div class="flex items-center justify-between gap-2 pt-4 border-t border-zinc-20c-8000 dark:border-zin">
-          <a href="https://github.com/Thebo-JNR/Thebo_Mahlangu-my_portfolio" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-            <svg class="w-5 h-5" fill="currentColor"  viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg>
-            View Code
-          </a>
-          <a href="https://thebo-mahlangu-my-portfolio.vercel.app/" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/> </svg>View Demo
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article class="carousel-card card-h reveal d2 group shrink-0 snap-center w-[85%] sm:w-380px rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col">
-      <div class="pf w-full h-48">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Finlo Fintech App" loading="lazy">
-      </div>
-      <div class="p-6 flex flex-col flex-1">
-        <div class="flex flex-wrap gap-2 mb-3">
-          <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">CSS</span>
-          <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">HTML</span>
-          <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">JavaScript</span>
-        </div>
-        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Guess Me - Interactive Game</h3>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5 flex-1">A simple web-app game built with web technologies. The game lets you guess the correct number and displays your high score.</p>
-        <div class="flex items-center justify-between gap-2 pt-4 border-t border-zinc-20c-8000 dark:border-zinc-800">
-           <a href="https://github.com/Thebo-JNR/guess-the-number-game" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-            <svg class="w-5 h-5" fill="currentColor"  viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg>
-            View Code
-          </a>
-          <a href="" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>  </svg>View Demo
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article class="carousel-card card-h reveal d3 group shrink-0 snap-center w-[85%] sm:w-380px rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col">
-      <div class="pf w-full h-48">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Orea Creative Agency" loading="lazy">
-      </div>
-      <div class="p-6 flex flex-col flex-1">
-        <div class="flex flex-wrap gap-2 mb-3">
-          <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Agency</span>
-          <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Animation</span>
-        </div>
-        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Orea — Creative Agency</h3>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5 flex-1">Bold editorial site for a Paris-based branding studio. Scroll-driven animations and custom cursor.</p>
-        <div class="flex items-center justify-between gap-2 pt-4 border-t border-zinc-20c-8000 dark:border-zinc-800">
-          <a href="#" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-            <svg class="w-5 h-5" fill="currentColor"  viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg>
-            View Code
-          </a>
-          <a href="#" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/> </svg>View Demo
-          </a>
-        </div>
-      </div>
-    </article>
-
-  </div>
-
-  <!-- ── DESKTOP/TABLET (md and up): uniform 3-per-row grid ── -->
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="hidden md:grid md:grid-cols-3 gap-6">
-
-      <article class="card-h reveal d1 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col">
-        <div class="pf w-full h-48">
-          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&q=80" alt="Novu SaaS Dashboard" loading="lazy">
-        </div>
-        <div class="p-6 flex flex-col flex-1">
-          <div class="flex flex-wrap gap-2 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">SaaS</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Figma</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Tailwind</span>
-          </div>
-         
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-1  ">Marketing site and admin dashboard for a multi-channel notification platform. Built with Figma and Tailwind.</p>
-          <div class="flex items-center justify-between gap-2 pt-4 border-t border-zinc-20c-8000 dark:border-zin">
-  <a href="#" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-    <svg class="w-5 h-5" fill="currentColor"  viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg>
-    View Code
-  </a>
-  
-  <a href="#" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>  </svg>View Demo
-  </a>
-</div>
-        </div>
-      </article>
-
-      <article class="card-h reveal d2 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col">
-        <div class="pf w-full h-48">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Finlo Fintech App" loading="lazy">
-        </div>
-        <div class="p-6 flex flex-col flex-1">
-          <div class="flex flex-wrap gap-2 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Fintech</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Landing page</span>
-          </div>
-            <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Finlo — Fintech App</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-1">Marketing site and onboarding flow for a personal finance app targeting young professionals.</p>
-         <div class="flex items-center justify-between gap-5 pt-4 border-t border-zinc-200 dark:border-zinc-800">
-  <a href="#" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg>
-    View Code
-  </a>
-  <a href="#" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-    View Demo
-  </a>
-</div>
-        </div>
-      </article>
-
-      <article class="card-h reveal d3 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent flex flex-col">
-        <div class="pf w-full h-48">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Orea Creative Agency" loading="lazy">
-        </div>
-        <div class="p-6 flex flex-col flex-1">
-          <div class="flex flex-wrap gap-2 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Agency</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Animation</span>
-          </div>
-            <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">OreaCreative Agency</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-1">Bold editorial site for a Paris-based branding studio. Scroll-driven animations and custom cursor.</p>
-          <div class="flex items-center justify-between pt-4 gap-5 border-t border-zinc-200 dark:border-zinc-800">
-  <a href="#" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg>
-    View Code
-  </a>
-  <a href="#" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors">
-    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-    View Demo
-  </a>
-</div>
-        </div>
-      </article>
-
-    </div>
-  </div>
+</section>
      
     
 <!-- ═══ EDUCATION ═══ -->
@@ -514,7 +562,7 @@
       <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Education & Experience</h2>
     </div>
 
-    <div class="relative max-w-3xl mx-auto">
+    <div class="relative max-w-3xl">
       <!-- center line (desktop) -->
       <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800 -translate-x-1/2"></div>
       <!-- left line (mobile) -->
@@ -644,10 +692,9 @@
 
 <footer class="border-t border-zinc-100 dark:border-zinc-900">
   <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p class="text-sm text-zinc-400">© <span id="yr"></span> TJ All rights reserved. <br> Developed by <a href="https://lbegey78.gumroad.com/" target="_blank" class="font-bold"> Thebo Junior Mahlangu</a>  <a href="https://themewagon.com/" target="_blank" class="font-bold"></a></p>
+    <p class="text-sm text-zinc-400">© <span id="yr"></span> . <br> Developed by <a href="https://lbegey78.gumroad.com/" target="_blank" class="font-bold"> Thebo Junior Mahlangu</a>  <a href="https://themewagon.com/" target="_blank" class="font-bold"></a></p>
     <p class="text-xs text-zinc-500">Built with
-      <a href="https://tailwindcss.com" rel="noopener noreferrer" target="_blank" class="hover:text-accent transition-colors">Tailwind CSS</a>
-      &amp;
+      <a href="https://tailwindcss.com" rel="noopener noreferrer" target="_blank" class="hover:text-accent transition-colors">Tailwind CSS</a>&amp;
       <a href="https://alpinejs.dev" rel="noopener noreferrer" target="_blank" class="hover:text-accent transition-colors">Javascript</a>
     </p>
   </div>
